@@ -9,7 +9,7 @@
 //#include<string>
 
 namespace Graph_lib {
-	
+
 typedef void* Address;
 typedef void (*Callback)(Address,Address);	// FLTK's required function type for all callbacks
 
@@ -62,7 +62,7 @@ class Button : public Widget {
 public:
 	Button(Point xy, int ww, int hh, const string& s, Callback cb)
 	:Widget(xy,ww,hh,s,cb)
-	{ 
+	{
 	}
 	void attach(Window& win);
 };
@@ -106,7 +106,7 @@ struct Menu : Widget {
 	void attach(Window& win)
 	{
 		for (int i=0; i<selection.size(); ++i) win.attach(selection[i]);
-	}	
+	}
 
 };
 

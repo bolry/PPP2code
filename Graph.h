@@ -41,8 +41,8 @@ struct Line_style {
 	enum Line_style_type {
 		solid=FL_SOLID,				// -------
 		dash=FL_DASH,				// - - - -
-		dot=FL_DOT,					// ....... 
-		dashdot=FL_DASHDOT,			// - . - . 
+		dot=FL_DOT,					// .......
+		dashdot=FL_DASHDOT,			// - . - .
 		dashdotdot=FL_DASHDOTDOT,	// -..-..
 	};
 	Line_style(Line_style_type ss) :s(ss), w(0) { }
@@ -64,9 +64,9 @@ public:
 		helvetica_italic=FL_HELVETICA_ITALIC,
 		helvetica_bold_italic=FL_HELVETICA_BOLD_ITALIC,
 		courier=FL_COURIER,
-  		courier_bold=FL_COURIER_BOLD,
-  		courier_italic=FL_COURIER_ITALIC,
-  		courier_bold_italic=FL_COURIER_BOLD_ITALIC,
+		courier_bold=FL_COURIER_BOLD,
+		courier_italic=FL_COURIER_ITALIC,
+		courier_bold_italic=FL_COURIER_BOLD_ITALIC,
 		times=FL_TIMES,
 		times_bold=FL_TIMES_BOLD,
 		times_italic=FL_TIMES_ITALIC,
@@ -121,7 +121,7 @@ protected:
 //	Shape() : lcolor(fl_color()),
 //		ls(0),
 //		fcolor(Color::invisible) { }
-	
+
 	void add(Point p){ points.push_back(p); }
 	void set_point(int i, Point p) { points[i] = p; }
 public:
@@ -167,7 +167,7 @@ private:
 struct Function : Shape {
 	// the function parameters are not stored
 	Function(Fct f, double r1, double r2, Point orig, int count = 100, double xscale = 25, double yscale = 25);
-	//Function(Point orig, Fct f, double r1, double r2, int count, double xscale = 1, double yscale = 1);	
+	//Function(Point orig, Fct f, double r1, double r2, int count, double xscale = 1, double yscale = 1);
 };
 
 struct Fill {
@@ -222,7 +222,7 @@ struct Open_polyline : Shape {	// open sequence of lines
 struct Closed_polyline : Open_polyline {	// closed sequence of lines
 	using Open_polyline::Open_polyline;
 	void draw_lines() const;
-	
+
 //	void add(Point p) { Shape::add(p); }
 };
 
@@ -305,7 +305,7 @@ struct Ellipse : Shape {
 	Point center() const { return{ point(0).x + w, point(0).y + h }; }
 	Point focus1() const { return{ center().x + int(sqrt(double(w*w - h*h))), center().y }; }
 	Point focus2() const { return{ center().x - int(sqrt(double(w*w - h*h))), center().y }; }
-	
+
 	void set_major(int ww) { w=ww; }
 	int major() const { return w; }
 	void set_minor(int hh) { h=hh; }

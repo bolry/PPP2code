@@ -11,7 +11,7 @@ struct Simple_window : Window {
 	: Window(xy,w,h,title),
 	  button_pushed(false),
 	  next_button(Point(x_max()-70,0), 70, 20, "Next", cb_next) { attach(next_button); }
-	
+
 	void wait_for_button()
 	// modified event loop
 	// handle all events (as per default), but quit when button_pushed becomes true
@@ -25,7 +25,7 @@ struct Simple_window : Window {
 	Button next_button;
 private:
 	bool button_pushed;
-	
+
 	static void cb_next(Address, Address addr) // callback for next_button
 	//	{ reference_to<Simple_window>(addr).next(); }
 	{

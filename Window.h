@@ -13,8 +13,8 @@ namespace Graph_lib {
 class Shape;	// "forward declare" Shape
 class Widget;
 
-class Window : public Fl_Window { 
-public: 
+class Window : public Fl_Window {
+public:
 	Window(int w, int h, const string& title );			// let the system pick the location
 	Window(Point xy, int w, int h, const string& title );	// top left corner in xy
 	virtual ~Window() { }
@@ -29,20 +29,20 @@ public:
 	void attach(Shape& s);
 	void attach(Widget& w);
 
-	void detach(Shape& s);	// remove s from shapes 
+	void detach(Shape& s);	// remove s from shapes
 	void detach(Widget& w);	// remove w from window (deactivate callbacks)
 
 	void put_on_top(Shape& p);	// put p on top of other shapes
 
 protected:
 	void draw();
-     
+
 private:
 	  vector<Shape*> shapes;	// shapes attached to window
 	  int w,h;					// window size
 
 	  void init();
-}; 
+};
 
 int gui_main();	// invoke GUI library's main event loop
 

@@ -12,7 +12,7 @@ Window::Window(int ww, int hh, const string& title)
 
 Window::Window(Point xy, int ww, int hh, const string& title)
 :Fl_Window(xy.x,xy.y,ww,hh,title.c_str()),w(ww),h(hh)
-{ 
+{
 	init();
 }
 
@@ -20,9 +20,9 @@ void Window::init()
 {
    resizable(this);
    show();
-} 
+}
 
-//---------------------------------------------------- 
+//----------------------------------------------------
 
 void Window::draw()
 {

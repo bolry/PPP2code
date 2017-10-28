@@ -24,7 +24,7 @@ void Shape::draw() const
 
 // does two lines (p1,p2) and (p3,p4) intersect?
 // if se return the distance of the intersect point as distances from p1
-inline pair<double,double> line_intersect(Point p1, Point p2, Point p3, Point p4, bool& parallel) 
+inline pair<double,double> line_intersect(Point p1, Point p2, Point p3, Point p4, bool& parallel)
 {
     double x1 = p1.x;
     double x2 = p2.x;
@@ -56,7 +56,7 @@ bool line_segment_intersect(Point p1, Point p2, Point p3, Point p4, Point& inter
    intersection.x = p1.x + u.first*(p2.x - p1.x);
    intersection.y = p1.y + u.first*(p2.y - p1.y);
    return true;
-} 
+}
 
 void Polygon::add(Point p)
 {
@@ -75,7 +75,7 @@ void Polygon::add(Point p)
 		if (line_segment_intersect(point(np-1),p,point(i-1),point(i),ignore))
 			error("intersect in polygon");
 	}
-	
+
 
 	Closed_polyline::add(p);
 }
@@ -98,7 +98,7 @@ void Open_polyline::draw_lines() const
 			fl_end_complex_polygon();
 			fl_color(color().as_int());	// reset color
 		}
-		
+
 		if (color().visibility())
 			Shape::draw_lines();
 }
@@ -107,7 +107,7 @@ void Open_polyline::draw_lines() const
 void Closed_polyline::draw_lines() const
 {
 	Open_polyline::draw_lines();
-		
+
 	if (color().visibility())	// draw closing line:
 		fl_line(point(number_of_points()-1).x,point(number_of_points()-1).y,point(0).x,point(0).y);
 }
@@ -267,13 +267,13 @@ void draw_mark(Point xy, char c)
 void Marked_polyline::draw_lines() const
 {
 	Open_polyline::draw_lines();
-	for (int i=0; i<number_of_points(); ++i) 
+	for (int i=0; i<number_of_points(); ++i)
 		draw_mark(point(i),mark[i%mark.size()]);
 }
 /*
 void Marks::draw_lines() const
 {
-	for (int i=0; i<number_of_points(); ++i) 
+	for (int i=0; i<number_of_points(); ++i)
 		fl_draw(mark.c_str(),point(i).x-4,point(i).y+4);
 }
 */
@@ -328,7 +328,7 @@ Image::Image(Point xy, string s, Suffix::Encoding e)
 	}
 
 	if (e == Suffix::none) e = get_encoding(s);
-	
+
 	switch(e) {
 	case Suffix::jpg:
 		p = new Fl_JPEG_Image(s.c_str());

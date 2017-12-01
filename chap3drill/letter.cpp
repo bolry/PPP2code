@@ -10,8 +10,7 @@ int main() {
 	cout << "Enter the name of another friend: ";
 	string friend_name;
 	cin >> friend_name;
-	cout << "Is " << friend_name
-			<< " male (enter 'm') or female (enter 'f'): ";
+	cout << "Is " << friend_name << " male (enter 'm') or female (enter 'f'): ";
 	char friend_sex = 0;
 	cin >> friend_sex;
 	cout << "Dear " << first_name
@@ -25,4 +24,10 @@ int main() {
 			<< " years old.\n";
 	if (age <= 0 || 110 <= age)
 		simple_error(" You're kidding!");
+	if (age < 12)
+		cout << "Next year you will be " << age + 1 << ".\n";
+	if (age == 17)
+		cout << "Next year you will be able to vote.\n";
+	if (age > 70)
+		cout << "I hope you are enjoying retirement.\n";
 }

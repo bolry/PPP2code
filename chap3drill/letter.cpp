@@ -30,4 +30,5 @@ int main() {
 		cout << "Next year you will be able to vote.\n";
 	if (age > 70)
 		cout << "I hope you are enjoying retirement.\n";
+	cout << "\nYours sincerely,\n\n\nJohn\n";
 }

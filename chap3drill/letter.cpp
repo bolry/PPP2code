@@ -4,11 +4,14 @@ int main() {
 	cout << "Enter the name of the person you want to write to: ";
 	string first_name; // first_name is a variable of type string
 	cin >> first_name; // read characters into first_name
+	cout << "Enter age of " << first_name << ": ";
+	int age;
+	cin >> age;
 	cout << "Enter the name of another friend: ";
 	string friend_name;
 	cin >> friend_name;
 	cout << "Is " << friend_name
-			<< " male, (enter 'm') or female (enter 'f'): ";
+			<< " male (enter 'm') or female (enter 'f'): ";
 	char friend_sex = 0;
 	cin >> friend_sex;
 	cout << "Dear " << first_name
@@ -18,4 +21,8 @@ int main() {
 		cout << "If you see " << friend_name << " please ask her to call me.\n";
 	if (friend_sex == 'm')
 		cout << "If you see " << friend_name << " please ask him to call me.\n";
+	cout << "I hear you just had a birthday and you are " << age
+			<< " years old.\n";
+	if (age <= 0 || 110 <= age)
+		simple_error(" You're kidding!");
 }

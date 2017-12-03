@@ -3,7 +3,7 @@
 int main()
 try {
 	string s = "ape";
-	if (s == "fool")
+	if (s != "fool")
 		cout << "Success!\n";
 	keep_window_open();
 	return 0;

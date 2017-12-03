@@ -1,25 +1,19 @@
 #include "std_lib_facilities.h"
 
 int main() {
-	cout << "write pairs of white-separated integer, terminate with '|': ";
-	double val1;
-	double val2;
-	while (cin >> val1 >> val2) {
-		if (val1 == val2)
-			cout << "the numbers are equal";
-		else {
-			cout << "the smaller value is: ";
-			if (val1 < val2)
-				cout << val1;
-			else
-				cout << val2;
-			cout << " the larger value is: ";
-			if (val1 > val2)
-				cout << val1;
-			else
-				cout << val2;
-			if (abs(val1 - val2) < 1.0 / 100)
-				cout << "\nthe numbers are almost equal";
+	cout << "write stream of white-separated integers, terminate with '|': ";
+	double smallest = numeric_limits<double>::max();
+	double largest = numeric_limits<double>::lowest();
+	double val;
+	while (cin >> val) {
+		cout << val;
+		if (val < smallest) {
+			cout << " the smallest so far";
+			smallest = val;
+		}
+		if (val > largest) {
+			cout << " the largest so far";
+			largest = val;
 		}
 		cout << '\n';
 	}

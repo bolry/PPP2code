@@ -2,7 +2,7 @@
 
 int main()
 try {
-	cout << "Success" << "!\n";
+	cout << success << '\n';
 	keep_window_open();
 	return 0;
 }

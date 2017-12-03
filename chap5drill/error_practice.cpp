@@ -2,9 +2,10 @@
 
 int main()
 try {
-	string s = "ape";
-	if (s != "fool")
-		cout << "Success!\n";
+	vector<char> v(5);
+	for (int i = 0; 0 < v.size(); ++i)
+		;
+	cout << "Success!\n";
 	keep_window_open();
 	return 0;
 }

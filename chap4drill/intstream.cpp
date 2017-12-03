@@ -4,6 +4,8 @@ int main() {
 	cout << "write stream of white-separated integers, terminate with '|': ";
 	double smallest = numeric_limits<double>::max();
 	double largest = numeric_limits<double>::lowest();
+	double sum = 0.;
+	int nr_entries = 0;
 	double val;
 	string unit;
 	while (cin >> val >> unit) {
@@ -23,6 +25,9 @@ int main() {
 		else
 			error("unknown unit `" + unit + '\'');
 
+		++nr_entries;
+		sum += val_in_meters;
+
 		if (val_in_meters < smallest) {
 			cout << " the smallest so far";
 			smallest = val_in_meters;
@@ -33,5 +38,9 @@ int main() {
 		}
 		cout << '\n';
 	}
+	cout << "smallest value was " << smallest << " m\n"
+			<< "largest value was " << largest << " m\n"
+			<< "number of values was " << nr_entries << '\n'
+			<< "and the sum of values was " << sum << " m\n";
 	return 0;
 }

@@ -2,8 +2,8 @@
 
 int main() {
 	cout << "write pairs of white-separated integer, terminate with '|': ";
-	int val1;
-	int val2;
+	double val1;
+	double val2;
 	while (cin >> val1 >> val2) {
 		if (val1 == val2)
 			cout << "the numbers are equal";

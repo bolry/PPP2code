@@ -4,8 +4,8 @@ int main() {
 	cout << "write stream of white-separated integers, terminate with '|': ";
 	double smallest = numeric_limits<double>::max();
 	double largest = numeric_limits<double>::lowest();
-	double sum = 0.;
-	int nr_entries = 0;
+	vector<double> values;
+
 	double val;
 	string unit;
 	while (cin >> val >> unit) {
@@ -25,8 +25,7 @@ int main() {
 		else
 			error("unknown unit `" + unit + '\'');
 
-		++nr_entries;
-		sum += val_in_meters;
+		values.push_back(val_in_meters);
 
 		if (val_in_meters < smallest) {
 			cout << " the smallest so far";
@@ -38,9 +37,17 @@ int main() {
 		}
 		cout << '\n';
 	}
+	double sum = 0.;
+	for (double v : values)
+		sum += v;
 	cout << "smallest value was " << smallest << " m\n"
 			<< "largest value was " << largest << " m\n"
-			<< "number of values was " << nr_entries << '\n'
-			<< "and the sum of values was " << sum << " m\n";
+			<< "number of values was " << values.size() << '\n'
+			<< "and the sum of values was " << sum << " m\n"
+			<< "the values entered (in meters) where:\n";
+	cout << values[0];
+	for (int i = 1; i < static_cast<int>(values.size()); ++i)
+		cout << ", " << values[i];
+	cout << '\n';
 	return 0;
 }

@@ -44,7 +44,8 @@ int main() {
 			<< "largest value was " << largest << " m\n"
 			<< "number of values was " << values.size() << '\n'
 			<< "and the sum of values was " << sum << " m\n"
-			<< "the values entered (in meters) where:\n";
+			<< "the values (in meters) in increasing order where:\n";
+	sort(values);
 	cout << values[0];
 	for (int i = 1; i < static_cast<int>(values.size()); ++i)
 		cout << ", " << values[i];

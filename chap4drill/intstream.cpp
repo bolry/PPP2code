@@ -18,6 +18,8 @@ int main() {
 				cout << val1;
 			else
 				cout << val2;
+			if (abs(val1 - val2) < 1.0 / 100)
+				cout << "\nthe numbers are almost equal";
 		}
 		cout << '\n';
 	}

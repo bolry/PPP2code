@@ -2,11 +2,10 @@
 
 int main()
 try {
-	bool c = true;
+	string s = "ape";
+	boo c = "fool" < s;
 	if (c)
 		cout << "Success!\n";
-	else
-		cout << "Fail!\n";
 	keep_window_open();
 	return 0;
 }

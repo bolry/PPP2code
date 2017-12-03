@@ -2,6 +2,7 @@
 
 int main()
 try {
+	const bool cond = true;
 	if (cond)
 		cout << "Success!\n";
 	else

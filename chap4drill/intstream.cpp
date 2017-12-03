@@ -10,10 +10,18 @@ int main() {
 		cout << val << ' ' << unit;
 
 		double val_in_meters;
-		if (unit == "m") val_in_meters = val;
-		if (unit == "cm") val_in_meters = val / 100.;
-		if (unit == "in") val_in_meters = val * 2.54 / 100.;
-		if (unit == "ft") val_in_meters = val * 12. * 2.54 / 100.;
+		if (unit == "m") // meters
+			val_in_meters = val;
+		else if (unit == "cm") // centimeters
+			val_in_meters = val / 100.;
+		else if (unit == "in") // inches
+			val_in_meters = val * 2.54 / 100.;
+		else if (unit == "ft") // feet
+			val_in_meters = val * 12. * 2.54 / 100.;
+		else if (unit == "|") // terminator
+			break;
+		else
+			error("unknown unit `" + unit + '\'');
 
 		if (val_in_meters < smallest) {
 			cout << " the smallest so far";

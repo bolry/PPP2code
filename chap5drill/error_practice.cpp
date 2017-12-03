@@ -2,8 +2,8 @@
 
 int main()
 try {
-	const bool cond = true;
-	if (cond)
+	bool c = false;
+	if (c)
 		cout << "Success!\n";
 	else
 		cout << "Fail!\n";

@@ -2,10 +2,10 @@
 
 int main()
 try {
-	vector<int> v(10);
-	v[5] = 7;
-	if (v[5] == 7)
+	if (cond)
 		cout << "Success!\n";
+	else
+		cout << "Fail!\n";
 	keep_window_open();
 	return 0;
 }

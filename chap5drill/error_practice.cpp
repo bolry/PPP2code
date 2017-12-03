@@ -2,8 +2,10 @@
 
 int main()
 try {
-	const string success = "Success!";
-	cout << success << '\n';
+	string res = 7;
+	vector<int> v(10);
+	v[5] = res;
+	cout << "Success!\n";
 	keep_window_open();
 	return 0;
 }

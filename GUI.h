@@ -92,7 +92,9 @@ namespace Graph_lib {
 
     struct Menu : Widget {
         enum Kind { horizontal, vertical };
-        Menu(Point xy, int w, int h, Kind kk, const string& label);
+        Menu(Point xy, int w, int h, Kind kk, const string& label)
+            : Widget(xy,w,h,label,0), k(kk), offset(0)
+        {}
 
         Vector_ref<Button> selection;
         Kind k;
@@ -107,12 +109,12 @@ namespace Graph_lib {
         }
         void hide()                 // hide all buttons
         {
-            for (unsigned int i = 0; i<selection.size(); ++i) 
-                selection[i].hide(); 
+            for (unsigned int i = 0; i<selection.size(); ++i)
+                selection[i].hide();
         }
         void move(int dx, int dy)   // move all buttons
         {
-            for (unsigned int i = 0; i<selection.size(); ++i) 
+            for (unsigned int i = 0; i<selection.size(); ++i)
                 selection[i].move(dx,dy);
         }
 

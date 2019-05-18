@@ -71,7 +71,7 @@ void Polygon::add(Point p)
 	}
 
 	for (int i = 1; i<np-1; ++i) {	// check that new segment doesn't interset and old point
-		Point ignore{0,0};
+		Point ignore(0,0);
 		if (line_segment_intersect(point(np-1),p,point(i-1),point(i),ignore))
 			error("intersect in polygon");
 	}
@@ -145,7 +145,7 @@ Function::Function(Fct f, double r1, double r2, Point xy, int count, double xsca
 	double dist = (r2-r1)/count;
 	double r = r1;
 	for (int i = 0; i<count; ++i) {
-		add(Point{xy.x+int(r*xscale),xy.y-int(f(r)*yscale)});
+		add(Point(xy.x+int(r*xscale),xy.y-int(f(r)*yscale)));
 		r += dist;
 	}
 }
@@ -166,18 +166,18 @@ void Rectangle::draw_lines() const
 
 
 Axis::Axis(Orientation d, Point xy, int length, int n, string lab)
-	:label(Point{0,0},lab)
+	:label(Point(0,0),lab)
 {
 	if (length<0) error("bad axis length");
 	switch (d){
 	case Axis::x:
 		{	Shape::add(xy);	// axis line
-			Shape::add(Point{xy.x+length,xy.y});	// axis line
+			Shape::add(Point(xy.x+length,xy.y));	// axis line
 			if (1<n) {
 				int dist = length/n;
 				int x = xy.x+dist;
 				for (int i = 0; i<n; ++i) {
-					notches.add(Point{x,xy.y},Point{x,xy.y-5});
+					notches.add(Point(x,xy.y),Point(x,xy.y-5));
 				x += dist;
 			}
 		}
@@ -187,12 +187,12 @@ Axis::Axis(Orientation d, Point xy, int length, int n, string lab)
 	}
 	case Axis::y:
 		{	Shape::add(xy);	// a y-axis goes up
-			Shape::add(Point{xy.x,xy.y-length});
+			Shape::add(Point(xy.x,xy.y-length));
 			if (1<n) {
 			int dist = length/n;
 			int y = xy.y-dist;
 			for (int i = 0; i<n; ++i) {
-				notches.add(Point{xy.x,y},Point{xy.x+5,y});
+				notches.add(Point(xy.x,y),Point(xy.x+5,y));
 				y -= dist;
 			}
 		}
@@ -310,7 +310,7 @@ bool can_open(const string& s)
             // check if a file named s exists and can be opened for reading
 {
 	ifstream ff(s.c_str());
-	return !!ff;
+	return ff;
 }
 
 
